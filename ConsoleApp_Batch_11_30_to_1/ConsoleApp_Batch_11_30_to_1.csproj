@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleApp_Batch_11_30_to_1.ControlStatement.IterationStatement.Pattern.P1</StartupObject>
+    <StartupObject>ConsoleApp_Batch_11_30_to_1.Methods.StaticAndInstanceMembers</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -53,6 +53,8 @@
     <Compile Include="ControlStatement\IterationStatement\WhileLoopDemo.cs" />
     <Compile Include="ControlStatement\SelectionStatement\BasicCalculator.cs" />
     <Compile Include="ControlStatement\SelectionStatement\IfDemonstration.cs" />
+    <Compile Include="Methods\MethodDemo.cs" />
+    <Compile Include="Methods\StaticAndInstanceMembers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Program2.cs" />
     <Compile Include="Program3.cs" />
@@ -62,6 +64,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="OOPS\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
