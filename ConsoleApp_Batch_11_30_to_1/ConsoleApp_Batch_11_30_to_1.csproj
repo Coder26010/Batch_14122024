@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleApp_Batch_11_30_to_1.OOPS.ClassAndObject</StartupObject>
+    <StartupObject>ConsoleApp_Batch_11_30_to_1.OOPS.Abstraction.Startup</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -55,6 +55,14 @@
     <Compile Include="ControlStatement\SelectionStatement\IfDemonstration.cs" />
     <Compile Include="Methods\MethodDemo.cs" />
     <Compile Include="Methods\StaticAndInstanceMembers.cs" />
+    <Compile Include="OOPS\Abstraction\Employee.cs" />
+    <Compile Include="OOPS\Abstraction\FullTimeEmployee.cs" />
+    <Compile Include="OOPS\Abstraction\IStudentRepository.cs" />
+    <Compile Include="OOPS\Abstraction\MockStudentRepository.cs" />
+    <Compile Include="OOPS\Abstraction\OnlineStudent.cs" />
+    <Compile Include="OOPS\Abstraction\Startup.cs" />
+    <Compile Include="OOPS\Abstraction\Student.cs" />
+    <Compile Include="OOPS\Abstraction\StudentRepository.cs" />
     <Compile Include="OOPS\ClassAndObject.cs" />
     <Compile Include="OOPS\Inheritance\BaseLoan.cs" />
     <Compile Include="OOPS\Inheritance\SecuredLoan.cs" />
