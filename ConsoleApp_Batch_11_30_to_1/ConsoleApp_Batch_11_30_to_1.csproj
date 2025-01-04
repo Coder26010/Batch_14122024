@@ -53,6 +53,7 @@
     <Compile Include="ControlStatement\IterationStatement\WhileLoopDemo.cs" />
     <Compile Include="ControlStatement\SelectionStatement\BasicCalculator.cs" />
     <Compile Include="ControlStatement\SelectionStatement\IfDemonstration.cs" />
+    <Compile Include="ExceptionHandling\ExceptionDemo.cs" />
     <Compile Include="Methods\MethodDemo.cs" />
     <Compile Include="Methods\StaticAndInstanceMembers.cs" />
     <Compile Include="OOPS\Abstraction\Employee.cs" />
