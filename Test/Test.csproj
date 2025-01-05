@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{46B31F60-3A90-4C4C-9BAC-601078BCDE49}</ProjectGuid>
+    <ProjectGuid>{8BA156CD-3D30-42C4-9161-1FA3817EE4FA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleApp_Batch_11_30_to_1</RootNamespace>
-    <AssemblyName>ConsoleApp_Batch_11_30_to_1</AssemblyName>
+    <RootNamespace>Test</RootNamespace>
+    <AssemblyName>Test</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,13 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>ConsoleApp_Batch_11_30_to_1.ExceptionHandling.test</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,40 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControlStatement\IterationStatement\doWhileLoop.cs" />
-    <Compile Include="ControlStatement\IterationStatement\ForLoopDemo.cs" />
-    <Compile Include="ControlStatement\IterationStatement\Pattern\P1.cs" />
-    <Compile Include="ControlStatement\IterationStatement\WhileLoopDemo.cs" />
-    <Compile Include="ControlStatement\SelectionStatement\BasicCalculator.cs" />
-    <Compile Include="ControlStatement\SelectionStatement\IfDemonstration.cs" />
-    <Compile Include="ExceptionHandling\ExceptionDemo.cs" />
-    <Compile Include="ExceptionHandling\test.cs" />
-    <Compile Include="Methods\MethodDemo.cs" />
-    <Compile Include="Methods\StaticAndInstanceMembers.cs" />
-    <Compile Include="OOPS\Abstraction\Employee.cs" />
-    <Compile Include="OOPS\Abstraction\FullTimeEmployee.cs" />
-    <Compile Include="OOPS\Abstraction\IStudentRepository.cs" />
-    <Compile Include="OOPS\Abstraction\MockStudentRepository.cs" />
-    <Compile Include="OOPS\Abstraction\OnlineStudent.cs" />
-    <Compile Include="OOPS\Abstraction\Startup.cs" />
-    <Compile Include="OOPS\Abstraction\Student.cs" />
-    <Compile Include="OOPS\Abstraction\StudentRepository.cs" />
-    <Compile Include="OOPS\ClassAndObject.cs" />
-    <Compile Include="OOPS\Encapsulation\Employee.cs" />
-    <Compile Include="OOPS\Encapsulation\Startup.cs" />
-    <Compile Include="OOPS\Inheritance\BaseLoan.cs" />
-    <Compile Include="OOPS\Inheritance\SecuredLoan.cs" />
-    <Compile Include="OOPS\Polymorphism\Class1.cs" />
-    <Compile Include="OOPS\Polymorphism\EmailService.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Program2.cs" />
-    <Compile Include="Program3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Variable_DT\Variable_DataType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ConsoleApp_Batch_11_30_to_1\ConsoleApp_Batch_11_30_to_1.csproj">
+      <Project>{46b31f60-3a90-4c4c-9bac-601078bcde49}</Project>
+      <Name>ConsoleApp_Batch_11_30_to_1</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

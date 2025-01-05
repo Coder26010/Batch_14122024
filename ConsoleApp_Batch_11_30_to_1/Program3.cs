@@ -11,6 +11,7 @@ namespace ConsoleApp_Batch_11_30_to_1
         static void Main(string[] args)
         {
             Console.WriteLine("This is Program3 class method.");
+            OOPS.Encapsulation.Employee employee = new OOPS.Encapsulation.Employee();
         }
     }
 }
