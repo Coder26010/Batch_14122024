@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleApp_Batch_11_30_to_1.ExceptionHandling.test</StartupObject>
+    <StartupObject>ConsoleApp_Batch_11_30_to_1.CollectionDemo.SingleDimentionArray</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CollectionDemo\ArrayCustomExtension.cs" />
+    <Compile Include="CollectionDemo\SingleDimentionArray.cs" />
     <Compile Include="ControlStatement\IterationStatement\doWhileLoop.cs" />
     <Compile Include="ControlStatement\IterationStatement\ForLoopDemo.cs" />
     <Compile Include="ControlStatement\IterationStatement\Pattern\P1.cs" />
@@ -55,6 +57,9 @@
     <Compile Include="ControlStatement\SelectionStatement\IfDemonstration.cs" />
     <Compile Include="ExceptionHandling\ExceptionDemo.cs" />
     <Compile Include="ExceptionHandling\test.cs" />
+    <Compile Include="ExtensionMethod\SmartCalculator.cs" />
+    <Compile Include="ExtensionMethod\SmartCalculatorExtensionV1.cs" />
+    <Compile Include="ExtensionMethod\Startup.cs" />
     <Compile Include="Methods\MethodDemo.cs" />
     <Compile Include="Methods\StaticAndInstanceMembers.cs" />
     <Compile Include="OOPS\Abstraction\Employee.cs" />
@@ -72,6 +77,10 @@
     <Compile Include="OOPS\Inheritance\SecuredLoan.cs" />
     <Compile Include="OOPS\Polymorphism\Class1.cs" />
     <Compile Include="OOPS\Polymorphism\EmailService.cs" />
+    <Compile Include="PartialClassDemo\Reservation.Booking.cs" />
+    <Compile Include="PartialClassDemo\Reservation.Cancellation.cs" />
+    <Compile Include="PartialClassDemo\Reservation.Enquiry.cs" />
+    <Compile Include="PartialClassDemo\Startup.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Program2.cs" />
     <Compile Include="Program3.cs" />
