@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleApp_Batch_11_30_to_1.CollectionDemo.SingleDimentionArray</StartupObject>
+    <StartupObject>ConsoleApp_Batch_11_30_to_1.CollectionDemo.ArrayListExample</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionDemo\ArrayCustomExtension.cs" />
+    <Compile Include="CollectionDemo\ArrayListExample.cs" />
+    <Compile Include="CollectionDemo\JagedArrayDemo.cs" />
+    <Compile Include="CollectionDemo\MultiDimentionArray.cs" />
     <Compile Include="CollectionDemo\SingleDimentionArray.cs" />
     <Compile Include="ControlStatement\IterationStatement\doWhileLoop.cs" />
     <Compile Include="ControlStatement\IterationStatement\ForLoopDemo.cs" />
