@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleApp_Batch_11_30_to_1.CollectionDemo.ArrayListExample</StartupObject>
+    <StartupObject>ConsoleApp_Batch_11_30_to_1.GenericExample.DictionaryExample</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -63,6 +63,10 @@
     <Compile Include="ExtensionMethod\SmartCalculator.cs" />
     <Compile Include="ExtensionMethod\SmartCalculatorExtensionV1.cs" />
     <Compile Include="ExtensionMethod\Startup.cs" />
+    <Compile Include="GenericExample\DictionaryExample.cs" />
+    <Compile Include="GenericExample\ListExample.cs" />
+    <Compile Include="GenericExample\StackAndQueue.cs" />
+    <Compile Include="GenericExample\Startup.cs" />
     <Compile Include="Methods\MethodDemo.cs" />
     <Compile Include="Methods\StaticAndInstanceMembers.cs" />
     <Compile Include="OOPS\Abstraction\Employee.cs" />
