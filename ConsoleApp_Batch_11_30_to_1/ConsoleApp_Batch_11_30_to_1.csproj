@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleApp_Batch_11_30_to_1.GenericExample.DictionaryExample</StartupObject>
+    <StartupObject>ConsoleApp_Batch_11_30_to_1.FileHandling.Startup</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -58,11 +58,13 @@
     <Compile Include="ControlStatement\IterationStatement\WhileLoopDemo.cs" />
     <Compile Include="ControlStatement\SelectionStatement\BasicCalculator.cs" />
     <Compile Include="ControlStatement\SelectionStatement\IfDemonstration.cs" />
+    <Compile Include="Delegates\Startup.cs" />
     <Compile Include="ExceptionHandling\ExceptionDemo.cs" />
     <Compile Include="ExceptionHandling\test.cs" />
     <Compile Include="ExtensionMethod\SmartCalculator.cs" />
     <Compile Include="ExtensionMethod\SmartCalculatorExtensionV1.cs" />
     <Compile Include="ExtensionMethod\Startup.cs" />
+    <Compile Include="FileHandling\Startup.cs" />
     <Compile Include="GenericExample\DictionaryExample.cs" />
     <Compile Include="GenericExample\ListExample.cs" />
     <Compile Include="GenericExample\StackAndQueue.cs" />
