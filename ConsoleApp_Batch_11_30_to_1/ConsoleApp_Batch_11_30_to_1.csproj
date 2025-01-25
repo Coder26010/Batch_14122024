@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleApp_Batch_11_30_to_1.MultiThreadingExample.Startup</StartupObject>
+    <StartupObject>ConsoleApp_Batch_11_30_to_1.ADOExample.AdapterExample</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,6 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADOExample\AdapterExample.cs" />
+    <Compile Include="ADOExample\CommandExample.cs" />
+    <Compile Include="ADOExample\ConnectionExample.cs" />
+    <Compile Include="ADOExample\ReaderExample.cs" />
     <Compile Include="CollectionDemo\ArrayCustomExtension.cs" />
     <Compile Include="CollectionDemo\ArrayListExample.cs" />
     <Compile Include="CollectionDemo\JagedArrayDemo.cs" />
