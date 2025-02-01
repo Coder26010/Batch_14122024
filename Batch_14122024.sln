@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp_Batch_11_30_to_1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{8BA156CD-3D30-42C4-9161-1FA3817EE4FA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ASP.NET WEB Solution", "ASP.NET WEB Solution", "{60C54CBD-6EAB-487B-A561-B6FD9A63C92A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePortal", "EmployeePortal\EmployeePortal.csproj", "{D5ABE600-DA5E-4203-B45F-0ECFD76E391A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,16 @@ Global
 		{8BA156CD-3D30-42C4-9161-1FA3817EE4FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BA156CD-3D30-42C4-9161-1FA3817EE4FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BA156CD-3D30-42C4-9161-1FA3817EE4FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5ABE600-DA5E-4203-B45F-0ECFD76E391A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5ABE600-DA5E-4203-B45F-0ECFD76E391A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5ABE600-DA5E-4203-B45F-0ECFD76E391A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5ABE600-DA5E-4203-B45F-0ECFD76E391A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D5ABE600-DA5E-4203-B45F-0ECFD76E391A} = {60C54CBD-6EAB-487B-A561-B6FD9A63C92A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82FC94D0-A2E9-4491-826D-78BA119327A2}
