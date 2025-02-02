@@ -80,6 +80,24 @@ namespace EmployeePortal.Admin
 
         }
         #endregion
+
+        protected void GridDepartment_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int rowindex = e.RowIndex;
+
+            int DepartmentId = Convert.ToInt32(GridDepartment.DataKeys[rowindex].Value);
+
+            if(departmentRepository.Remove(DepartmentId,out string ErrorMessage))
+            {
+                ShowMessage("Success", "Record removed successfully", MessageTyepe.success);
+                GridDepartment.DataSource = departmentRepository.GetDepartments;
+                GridDepartment.DataBind();
+            }
+            else
+            {
+                ShowMessage("Error", ErrorMessage, MessageTyepe.error);
+            }
+        }
     }
 
 

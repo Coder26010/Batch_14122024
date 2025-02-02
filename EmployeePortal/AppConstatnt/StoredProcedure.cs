@@ -13,6 +13,8 @@ namespace EmployeePortal.AppConstatnt
 
         public static string GetAllDepartment = "spGetAllDepartments";
 
+        public static string DeleteDepartment = "spDeleteDepartment";
+
         #endregion
 
         #region "All Stored Procedure related to Employee"

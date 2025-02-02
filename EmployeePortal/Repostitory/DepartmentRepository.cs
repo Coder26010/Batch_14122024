@@ -14,7 +14,7 @@ namespace EmployeePortal.Repostitory
     public class DepartmentRepository
     {
         string CS = ConfigurationManager.ConnectionStrings["EMPDBCON"].ConnectionString;
-        public bool Save(DepartmentModel model,out string ErrorMessage)
+        public bool Save(DepartmentModel model, out string ErrorMessage)
         {
             ErrorMessage = string.Empty;
             try
@@ -34,7 +34,7 @@ namespace EmployeePortal.Repostitory
 
                     if (status == "create")
                     {
-                       return true;
+                        return true;
                     }
                     else
                     {
@@ -61,7 +61,7 @@ namespace EmployeePortal.Repostitory
                     {
                         SqlCommand command = new SqlCommand(StoredProcedure.GetAllDepartment, conn);
                         command.CommandType = System.Data.CommandType.StoredProcedure;
-                       
+
                         conn.Open();
                         SqlDataReader reader = command.ExecuteReader();
                         if (reader.HasRows)
@@ -94,6 +94,40 @@ namespace EmployeePortal.Repostitory
                 {
                     return new List<DepartmentModel>();
                 }
+            }
+        }
+
+        public bool Remove(int DepartmentId, out string ErrorMessage)
+        {
+            ErrorMessage = string.Empty;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(CS))
+                {
+                    SqlCommand command = new SqlCommand(StoredProcedure.DeleteDepartment, conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@SystemNumber", DepartmentId);
+
+                    conn.Open();
+                    int row = command.ExecuteNonQuery();
+                    conn.Close();
+
+                    if (row > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        ErrorMessage = "System unable to perform this action";
+                    }
+                }
+
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }
