@@ -1,10 +1,12 @@
 ﻿using EmployeePortal.Admin;
+using EmployeePortal.AppConstatnt;
 using EmployeePortal.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 
 namespace EmployeePortal.Repostitory
@@ -19,7 +21,7 @@ namespace EmployeePortal.Repostitory
             {
                 using (SqlConnection conn = new SqlConnection(CS))
                 {
-                    SqlCommand command = new SqlCommand("spInsertDepartment", conn);
+                    SqlCommand command = new SqlCommand(StoredProcedure.InsertDepartment, conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@Dcode", model.Dcode);
@@ -45,6 +47,53 @@ namespace EmployeePortal.Repostitory
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public List<DepartmentModel> GetDepartments
+        {
+            get
+            {
+                try
+                {
+                    List<DepartmentModel> departments = new List<DepartmentModel>();
+                    using (SqlConnection conn = new SqlConnection(CS))
+                    {
+                        SqlCommand command = new SqlCommand(StoredProcedure.GetAllDepartment, conn);
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+                       
+                        conn.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                //DepartmentModel model = new DepartmentModel()
+                                //{
+                                //    SystemNumber = Convert.ToInt32(reader["SystemNumber"]),
+                                //    Dcode = reader["DCode"].ToString(),
+                                //    Name = reader["Name"].ToString(),
+                                //    CreateDateTime = Convert.ToDateTime(reader["RecordCreationDate"])
+                                //};
+                                //departments.Add(model);
+
+                                departments.Add(new DepartmentModel()
+                                {
+                                    SystemNumber = Convert.ToInt32(reader["SystemNumber"]),
+                                    Dcode = reader["DCode"].ToString(),
+                                    Name = reader["Name"].ToString(),
+                                    CreateDateTime = Convert.ToDateTime(reader["RecordCreationDate"])
+                                });
+                            }
+                        }
+                        conn.Close();
+                    }
+                    return departments;
+                }
+                catch (Exception)
+                {
+                    return new List<DepartmentModel>();
+                }
             }
         }
     }

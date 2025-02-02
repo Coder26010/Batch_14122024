@@ -6,6 +6,10 @@
 <head runat="server">
     <title></title>
     <link href="../Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/toastr/toastr.css" rel="stylesheet" />
+
+    <script src="../Content/jquery/jquery.min.js"></script>
+    <script src="../Content/toastr/toastr.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -44,7 +48,23 @@
                         </td>
                     </tr>
                 </table>
-                <asp:Label runat="server" ID="lblmsg"></asp:Label>
+              <%--  <asp:Label runat="server" ID="lblmsg"></asp:Label>--%>
+            </div>
+        </div>
+
+        <hr />
+        <div class="row">
+            <div class="col-8 offset-2">
+                <asp:GridView runat="server" ID="GridDepartment"
+                    CssClass="table table-striped" AutoGenerateColumns="false">
+
+                    <Columns>
+                        <asp:BoundField HeaderText="Department Code" DataField="Dcode"/>
+                        <asp:BoundField HeaderText="Department Name" DataField="Name"/>
+                        <asp:BoundField HeaderText="Created DateTime" DataField="CreateDateTime"/>
+                    </Columns>
+
+                </asp:GridView>
             </div>
         </div>
     </form>
