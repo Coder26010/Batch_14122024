@@ -41,19 +41,68 @@ END;
 --------------------------------------------------------------------------------------------
 
 
-Create Procedure spGetAllDepartments
+Create Procedure [dbo].[spGetAllDepartments]
+@PageSize int = 3,
+@PageNo int = 1
 AS
 BEGIN
-select SystemNumber,DCode,Name,Description,RecordCreationDate from TDEPARTMENT
-END;
+
+Declare @TotalCount int = (Select count(SystemNumber) from TDEPARTMENT)
+
+select SystemNumber,DCode,Name,Description,RecordCreationDate,@TotalCount as TotalRecords 
+from TDEPARTMENT
+Order by SystemNumber
+Offset (@PageNo - 1)*@PageSize rows fetch next @PageSize rows only
+END
+
+---------------------------------------------------------------------------------------
+
+Create Proc spGetDepartment
+@DepartmentId Int
+AS
+BEGIN
+  
+  IF EXISTS(Select 1 from TDEPARTMENT where  SystemNumber = @DepartmentId)
+  BEGIN
+     Select SystemNumber,DCode,Name,ISNULL(Description,'') as Description from TDEPARTMENT where  SystemNumber = @DepartmentId
+	return
+  END
+   
+   Select 'notfount' as StatusCode
+END
 
 ------------------------------------------------------------------------------------------
-Create Procedure spDeleteDepartment 10
+Create Procedure spDeleteDepartment
 @SystemNumber int
 AS
 BEGIN
 Delete from TDEPARTMENT where SystemNumber = @SystemNumber
 END
+
+--------------------------------------------------------------------------------------------
+
+
+Create Proc [dbo].[spUpdateDepartment]
+@DepartmentId Int,
+@DepartmentCode Varchar(6),
+@DepartmentName Varchar(50),
+@Description varchar(200) = null
+AS
+BEGIN
+  
+  IF NOT EXISTS(Select 1 from TDEPARTMENT where DCode = @DepartmentCode and SystemNumber <> @DepartmentId)
+  BEGIN
+    Update TDEPARTMENT Set DCode = @DepartmentCode, Name = @DepartmentName,
+	Description = @Description Where SystemNumber = @DepartmentId;
+	
+	Select 'updated' as StatusCode
+
+	return
+  END
+   
+   Select 'exists' as StatusCode
+END
+--------------------------------------------------------------------------------------------
 
 
 
