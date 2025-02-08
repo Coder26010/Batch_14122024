@@ -12,5 +12,7 @@ namespace EmployeePortal.Models
         public string Name { get; set; }
         public string Desc { get; set; }
         public DateTime CreateDateTime { get; set; }
+
+        public int TotalRecord { get; set; }
     }
 }

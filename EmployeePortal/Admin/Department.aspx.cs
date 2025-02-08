@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using EmployeePortal.Models;
 using EmployeePortal.Repostitory;
+using System.Diagnostics.SymbolStore;
 
 namespace EmployeePortal.Admin
 {
@@ -24,15 +25,54 @@ namespace EmployeePortal.Admin
         {
             if (!IsPostBack)
             {
-                GridDepartment.DataSource = departmentRepository.GetDepartments;
+
+                int PageNo = 0;
+                if (Request.QueryString["pageNo"] != null)
+                    int.TryParse(Request.QueryString["pageNo"].ToString(), out PageNo);
+
+                if(PageNo == 0)
+                    PageNo = 1;
+
+                var datalist = departmentRepository.GetDepartments(PageNo);
+                int TotalRecord = datalist.FirstOrDefault().TotalRecord;
+               
+
+                if(TotalRecord > 0)
+                {
+                    int PageSize = 3;
+
+                    int TotalPages = (int)Math.Ceiling((decimal)TotalRecord / PageSize);
+
+                    List<Pager> Pager = new List<Pager>();
+                    for (int i = 1; i <= TotalPages; i++)
+                    {
+                        Pager.Add(new Models.Pager() { 
+                            PageNo = i,
+                            PageUrl = $"~/Admin/Department.aspx?pageNo={i}"
+                        });
+                    }
+
+                    rptPager.DataSource = Pager;
+                    rptPager.DataBind();
+                }
+
+                GridDepartment.DataSource = datalist;
                 GridDepartment.DataBind();
             }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            int DepartmentId = 0;
+            if (!(string.IsNullOrEmpty(hdfDepartmentId.Value)
+                && string.IsNullOrWhiteSpace(hdfDepartmentId.Value)))
+            {
+                DepartmentId = Convert.ToInt32(hdfDepartmentId.Value);
+            }
+
             DepartmentModel department = new DepartmentModel()
             {
+                SystemNumber = DepartmentId,
                 Dcode = txtDepartmentCode.Text,
                 Name = txtDepartmentName.Text,
                 Desc = txtDepartmentDescription.Text
@@ -41,9 +81,12 @@ namespace EmployeePortal.Admin
             if (departmentRepository.Save(department, out string ErrorMessage))
             {
                 ClearFormControls();
-                GridDepartment.DataSource = departmentRepository.GetDepartments;
+                GridDepartment.DataSource = departmentRepository.GetDepartments();
                 GridDepartment.DataBind();
-                ShowMessage("Success", "Record Created", MessageTyepe.success);
+                if (department.SystemNumber == 0)
+                    ShowMessage("Success", "Record Created", MessageTyepe.success);
+                else
+                    ShowMessage("Success", "Record Updated", MessageTyepe.success);
                 //ClientScript.
                 //    RegisterClientScriptBlock(this.GetType(),
                 //    "success", "toastr[\"success\"](\"Record Created\", \"Success \")", true);
@@ -68,6 +111,7 @@ namespace EmployeePortal.Admin
             txtDepartmentCode.Text = string.Empty;
             txtDepartmentDescription.Text = string.Empty;
             txtDepartmentName.Text = string.Empty;
+            hdfDepartmentId.Value = null;
         }
 
         private void ShowMessage(string Title, string Message, MessageTyepe MessageType)
@@ -87,15 +131,34 @@ namespace EmployeePortal.Admin
 
             int DepartmentId = Convert.ToInt32(GridDepartment.DataKeys[rowindex].Value);
 
-            if(departmentRepository.Remove(DepartmentId,out string ErrorMessage))
+            if (departmentRepository.Remove(DepartmentId, out string ErrorMessage))
             {
                 ShowMessage("Success", "Record removed successfully", MessageTyepe.success);
-                GridDepartment.DataSource = departmentRepository.GetDepartments;
+                GridDepartment.DataSource = departmentRepository.GetDepartments();
                 GridDepartment.DataBind();
             }
             else
             {
                 ShowMessage("Error", ErrorMessage, MessageTyepe.error);
+            }
+        }
+
+        protected void GridDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int DepartmentId = Convert.ToInt32(GridDepartment.DataKeys[GridDepartment.SelectedIndex].Value);
+            //ShowMessage("Info",$"Selected Department Id - {DepartmentId}", MessageTyepe.info);
+            DepartmentModel model = departmentRepository.GetDepartment(DepartmentId);
+
+            if (model != null)
+            {
+                txtDepartmentCode.Text = model.Dcode;
+                txtDepartmentName.Text = model.Name;
+                txtDepartmentDescription.Text = model.Desc;
+                hdfDepartmentId.Value = model.SystemNumber.ToString();
+            }
+            else
+            {
+                ShowMessage("Info", $"Record not found", MessageTyepe.info);
             }
         }
     }

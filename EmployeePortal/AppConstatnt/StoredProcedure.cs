@@ -12,8 +12,11 @@ namespace EmployeePortal.AppConstatnt
         public static string InsertDepartment = "spInsertDepartment";
 
         public static string GetAllDepartment = "spGetAllDepartments";
+        public static string GetDepartment = "spGetDepartment";
 
         public static string DeleteDepartment = "spDeleteDepartment";
+
+        public static string UpdateDepartment = "spUpdateDepartment";
 
         #endregion
 
