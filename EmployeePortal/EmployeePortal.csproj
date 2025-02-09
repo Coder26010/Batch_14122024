@@ -72,6 +72,7 @@
     <Content Include="Content\jquery\jquery.min.js" />
     <Content Include="Content\toastr\toastr.css" />
     <Content Include="Content\toastr\toastr.min.js" />
+    <Content Include="Examples\FileUploadExample.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Procedures\spInsertDepartment.sql" />
     <Content Include="Web.config" />
@@ -86,6 +87,13 @@
     </Compile>
     <Compile Include="AppConstatnt\AppEnums.cs" />
     <Compile Include="AppConstatnt\StoredProcedure.cs" />
+    <Compile Include="Examples\FileUploadExample.aspx.cs">
+      <DependentUpon>FileUploadExample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Examples\FileUploadExample.aspx.designer.cs">
+      <DependentUpon>FileUploadExample.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -106,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Account\" />
+    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
