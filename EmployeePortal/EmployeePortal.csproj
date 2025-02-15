@@ -68,10 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Department.aspx" />
+    <Content Include="Admin\EmployeeList.aspx" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\jquery\jquery.min.js" />
     <Content Include="Content\toastr\toastr.css" />
     <Content Include="Content\toastr\toastr.min.js" />
+    <Content Include="Examples\CookieExample.aspx" />
     <Content Include="Examples\FileUploadExample.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Procedures\spInsertDepartment.sql" />
@@ -85,8 +87,22 @@
     <Compile Include="Admin\Department.aspx.designer.cs">
       <DependentUpon>Department.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EmployeeList.aspx.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EmployeeList.aspx.designer.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AppConstatnt\AppEnums.cs" />
     <Compile Include="AppConstatnt\StoredProcedure.cs" />
+    <Compile Include="Examples\CookieExample.aspx.cs">
+      <DependentUpon>CookieExample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Examples\CookieExample.aspx.designer.cs">
+      <DependentUpon>CookieExample.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Examples\FileUploadExample.aspx.cs">
       <DependentUpon>FileUploadExample.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

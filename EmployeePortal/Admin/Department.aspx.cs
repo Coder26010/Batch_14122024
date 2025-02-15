@@ -64,11 +64,15 @@ namespace EmployeePortal.Admin
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             int DepartmentId = 0;
-            if (!(string.IsNullOrEmpty(hdfDepartmentId.Value)
-                && string.IsNullOrWhiteSpace(hdfDepartmentId.Value)))
+            if(ViewState["hdfDepartmentId"] != null)
             {
-                DepartmentId = Convert.ToInt32(hdfDepartmentId.Value);
+                DepartmentId = Convert.ToInt32(ViewState["hdfDepartmentId"]);
             }
+            //if (!(string.IsNullOrEmpty(hdfDepartmentId.Value)
+            //    && string.IsNullOrWhiteSpace(hdfDepartmentId.Value)))
+            //{
+            //    DepartmentId = Convert.ToInt32(hdfDepartmentId.Value);
+            //}
 
             DepartmentModel department = new DepartmentModel()
             {
@@ -111,7 +115,8 @@ namespace EmployeePortal.Admin
             txtDepartmentCode.Text = string.Empty;
             txtDepartmentDescription.Text = string.Empty;
             txtDepartmentName.Text = string.Empty;
-            hdfDepartmentId.Value = null;
+            ViewState["hdfDepartmentId"] = null;
+            //hdfDepartmentId.Value = null;
         }
 
         private void ShowMessage(string Title, string Message, MessageTyepe MessageType)
@@ -154,7 +159,11 @@ namespace EmployeePortal.Admin
                 txtDepartmentCode.Text = model.Dcode;
                 txtDepartmentName.Text = model.Name;
                 txtDepartmentDescription.Text = model.Desc;
-                hdfDepartmentId.Value = model.SystemNumber.ToString();
+                if (ViewState["hdfDepartmentId"] == null)
+                {
+                    ViewState["hdfDepartmentId"] = model.SystemNumber.ToString();
+                }
+                //hdfDepartmentId.Value = model.SystemNumber.ToString();
             }
             else
             {
