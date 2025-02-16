@@ -11,7 +11,16 @@ namespace EmployeePortal.Layouts
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserEmail"] != null)
+            {
+                lblcurrentsessiondata.Text = Session["UserEmail"].ToString();
+            }
+        }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
         }
     }
 }
