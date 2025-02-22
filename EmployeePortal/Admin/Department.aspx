@@ -4,8 +4,7 @@
 
 
 <asp:Content runat="server" ContentPlaceHolderID="ChildPage">
-    <form id="form1" runat="server">
-
+   
         <div class="row">
 
             <%--<asp:HiddenField runat="server" ID="hdfDepartmentId" />--%>
@@ -122,6 +121,6 @@
 
         </div>
 
-    </form>
+   
 </asp:Content>
 
