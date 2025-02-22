@@ -257,7 +257,7 @@ namespace EmployeePortal.Repostitory
                 {
                     DEPARTMENTENTITY dEPARTMENTENTITY = context.Departments.Find(model.SystemNumber);
 
-                    if (dEPARTMENTENTITY == null)
+                    if (dEPARTMENTENTITY != null)
                     {
                         dEPARTMENTENTITY.Name = model.Name;
                         dEPARTMENTENTITY.DepartmentCode = model.Dcode;

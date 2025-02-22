@@ -15,5 +15,6 @@ namespace EmployeePortal.DBEntity
         }
 
         public DbSet<DEPARTMENTENTITY> Departments { get; set; }
+        public DbSet<UserEntity> users { get; set; }
     }
 }
