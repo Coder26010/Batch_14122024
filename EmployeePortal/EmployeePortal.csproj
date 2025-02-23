@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Account\Login.aspx" />
     <Content Include="Account\Registration.aspx" />
     <Content Include="Admin\Department.aspx" />
     <Content Include="Admin\EmployeeList.aspx" />
@@ -89,6 +90,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -150,6 +158,10 @@
     <Compile Include="Migrations\202502220828235_AddingNewTable_TUSER.Designer.cs">
       <DependentUpon>202502220828235_AddingNewTable_TUSER.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202502230725142_AddRoleIntoUserEntity.cs" />
+    <Compile Include="Migrations\202502230725142_AddRoleIntoUserEntity.Designer.cs">
+      <DependentUpon>202502230725142_AddRoleIntoUserEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\Pager.cs" />
@@ -159,6 +171,8 @@
   <ItemGroup>
     <Content Include="libman.json" />
     <Content Include="Layouts\MainLayout.Master" />
+    <Content Include="Admin\Web.config" />
+    <Content Include="Account\Web.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -173,6 +187,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202502220828235_AddingNewTable_TUSER.resx">
       <DependentUpon>202502220828235_AddingNewTable_TUSER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502230725142_AddRoleIntoUserEntity.resx">
+      <DependentUpon>202502230725142_AddRoleIntoUserEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

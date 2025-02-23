@@ -17,5 +17,7 @@ namespace EmployeePortal.DBEntity.Entity
         public string FullName { get; set; }
         public string EmailAddress { get; set; }
         public string Password { get; set; }
+
+        public string Roles { get; set; }
     }
 }

@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Security;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Security.Principal;
 
 namespace EmployeePortal
 {
+   
     public class Global : System.Web.HttpApplication
     {
 
@@ -29,7 +32,25 @@ namespace EmployeePortal
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
+            HttpCookie cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 
+            if(cookie != null)
+            {
+                string encryptedTicket = cookie.Value;
+                FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(encryptedTicket);
+               
+                if(DateTime.Now < ticket.Expiration)
+                {
+                    string userName = ticket.Name;
+                    string userRoles = ticket.UserData;
+                    string[] roles = userRoles.Split(',');
+                    GenericIdentity identity = new GenericIdentity(userName);
+                    GenericPrincipal principal = new GenericPrincipal(identity, roles);
+                    HttpContext.Current.User = principal;
+                }
+            }
+
+            
         }
 
         protected void Application_Error(object sender, EventArgs e)
